@@ -1,20 +1,19 @@
-a:
-  build: a
+mudblazorui:
+  build: mudblazorui
   environment:
-    VIRTUAL_HOST: a.domain.com
+    VIRTUAL_HOST: mudblazorui.localhost
   restart: always
 
-b:
-  build: b
+identitydemo:
+  build: identitydemo
   environment:
-    VIRTUAL_HOST:  b.domain.com
+    VIRTUAL_HOST:  identitydemo.localhost
   restart: always
 
 nginx-proxy:
   image: jwilder/nginx-proxy
   ports:
-    - "80:80"
-    - "443:443"
+    - "8880:80"
   volumes:
     - /var/run/docker.sock:/tmp/docker.sock:ro
 
