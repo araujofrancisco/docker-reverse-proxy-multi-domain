@@ -1,23 +1,31 @@
 version: "3.9"
 services:
+   nginx-proxy:
+      image: jwilder/nginx-proxy
+	  container_name: nginx-proxy
+      ports:
+        - "8880:80"
+      volumes:
+        - /var/run/docker.sock:/tmp/docker.sock:ro
+	  networks:
+	    - nginx-proxy
+	  restart: always
+	  
    mudblazorui:
       build: mudblazorui
       environment:
          VIRTUAL_HOST: mudblazorui.localhost
       restart: always
+	  networks:
+	    - nginx-proxy
 
    identitydemo:
       build: identitydemo
       environment:
          VIRTUAL_HOST:  identitydemo.localhost
       restart: always
-
+	  networks:
+	    - nginx-proxy
+networks:
    nginx-proxy:
-      image: jwilder/nginx-proxy
-      ports:
-        - "8880:80"
-      volumes:
-        - /var/run/docker.sock:/tmp/docker.sock:ro
-
-    restart: always
-    privileged: true
+      external: true
