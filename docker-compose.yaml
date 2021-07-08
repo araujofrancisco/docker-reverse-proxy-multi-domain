@@ -7,25 +7,26 @@ services:
         - "8880:80"
       volumes:
         - /var/run/docker.sock:/tmp/docker.sock:ro
-	  networks:
-	    - nginx-proxy
-	  restart: always
-	  
+      networks:
+        - nginx-proxy
+      restart: always
+
    mudblazorui:
       build: mudblazorui
       environment:
-         VIRTUAL_HOST: mudblazorui.localhost
+        VIRTUAL_HOST: mudblazorui.localhost
       restart: always
-	  networks:
-	    - nginx-proxy
+      networks:
+        - nginx-proxy
 
    identitydemo:
       build: identitydemo
       environment:
-         VIRTUAL_HOST:  identitydemo.localhost
+        VIRTUAL_HOST:  identitydemo.localhost
       restart: always
-	  networks:
-	    - nginx-proxy
+      networks:
+        - nginx-proxy
+
 networks:
    nginx-proxy:
       external: true
