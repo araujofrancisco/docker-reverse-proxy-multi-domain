@@ -1,23 +1,23 @@
 version: "3.9"
 services:
-	mudblazorui:
-	  build: mudblazorui
-	  environment:
-		VIRTUAL_HOST: mudblazorui.localhost
-	  restart: always
+   mudblazorui:
+      build: mudblazorui
+      environment:
+         VIRTUAL_HOST: mudblazorui.localhost
+      restart: always
 
-	identitydemo:
-	  build: identitydemo
-	  environment:
-		VIRTUAL_HOST:  identitydemo.localhost
-	  restart: always
+   identitydemo:
+      build: identitydemo
+      environment:
+         VIRTUAL_HOST:  identitydemo.localhost
+      restart: always
 
-	nginx-proxy:
-	  image: jwilder/nginx-proxy
-	  ports:
-		- "8880:80"
-	  volumes:
-		- /var/run/docker.sock:/tmp/docker.sock:ro
+   nginx-proxy:
+      image: jwilder/nginx-proxy
+      ports:
+        - "8880:80"
+      volumes:
+        - /var/run/docker.sock:/tmp/docker.sock:ro
 
-	  restart: always
-	  privileged: true
+    restart: always
+    privileged: true
