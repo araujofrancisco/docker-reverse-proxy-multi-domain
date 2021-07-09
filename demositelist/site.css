@@ -1,13 +1,15 @@
 body {
-	background-color: #3A86FF;
+	background-image: url("https://images.pexels.com/photos/2004161/pexels-photo-2004161.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+}
 }
 
 .center-content {
-	width: 50vw;
-	height: 50vh;
+	width: 35vw;
+	height: 30vh;
 	
 	border-radius: 25px;
-	background-image: url(Protruding-Squares.svg);
+    background-color: #1f1f1f;
+    opacity: 0.85;
 	
 	position: absolute;
 	top:0;
@@ -17,14 +19,15 @@ body {
   	
 	margin: auto;
 	
-	text-align: center;
-	font-size: 30px;
+	text-align: center;	
 	font-family: Consolas,monaco,monospace;	
+	font-size: 30px;
+	font-weight: bolder;
 }
 
 .ul-sites {
 	display: inline-block;
-	width: 90%;
+	width: 75%;
 	height: 90%;	
     list-style-type: none;
     padding-left: 0;
@@ -33,10 +36,11 @@ body {
 .li-site:hover {
     cursor: pointer;
     color: #f7ede2;
+	background-color: blueviolet;
     display: grid;
     font-weight: 800;
-    border: 5px solid #769eb8;
-    border-radius: 20px;	
+	opacity: 0.85;
+    border-radius: 10px;	 
 }
 
 .li-site {
@@ -46,9 +50,9 @@ body {
 }
 
 a:link {
-	color: #f7ede2;
+	color: #ffffff;
 }
 
 a:visited {
-  color: #cfc8db;
+  color: #ffffff;
 }

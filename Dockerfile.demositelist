@@ -8,12 +8,10 @@ RUN git clone https://github.com/araujofrancisco/docker-reverse-proxy-multi-doma
 
 COPY ["demositelist/*.html", "."]
 COPY ["demositelist/*.css", "."]
-COPY ["demositelist/*.svg", "."]
 
 FROM base AS final
 WORKDIR /usr/share/nginx/html
 COPY --from=intermediate /src/*.html .
 COPY --from=intermediate /src/*.css .
-COPY --from=intermediate /src/*.svg .
 
 WORKDIR /
