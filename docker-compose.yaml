@@ -16,6 +16,14 @@ services:
         VIRTUAL_HOST: identitydemo.localhost
       restart: always
 
+   mvcblazordemo:
+      build:
+        context: .
+        dockerfile: Dockerfile.mvcblazordemo
+      environment:
+        VIRTUAL_HOST: mvcblazordemo.localhost
+      restart: always
+
    demositelist:
       build:
         context: .
