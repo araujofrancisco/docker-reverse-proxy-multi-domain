@@ -35,7 +35,7 @@ body {
 .li-site:hover {
     cursor: pointer;
     color: #f7ede2;
-	background-color: blueviolet;
+	background-color: #6f0030;
     display: grid;
     font-weight: 800;
 	opacity: 0.85;
