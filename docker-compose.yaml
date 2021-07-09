@@ -26,4 +26,8 @@ services:
         - "8880:80"
       volumes:
         - /var/run/docker.sock:/tmp/docker.sock:ro
+<<<<<<< HEAD
       restart: always
+=======
+      restart: always
+>>>>>>> cc7606aa1d9f4431c8b948833aae5626e018d914
