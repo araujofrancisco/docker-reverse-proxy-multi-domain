@@ -1,0 +1,19 @@
+FROM nginx:alpine AS base
+EXPOSE 80
+#EXPOSE 443
+
+FROM alpine/git:latest AS intermediate
+WORKDIR /src
+RUN git clone https://github.com/araujofrancisco/docker-reverse-proxy-multi-domain.git .
+
+COPY ["demositelist/*.html", "."]
+COPY ["demositelist/*.css", "."]
+COPY ["demositelist/*.svg", "."]
+
+FROM base AS final
+WORKDIR /usr/share/nginx/html
+COPY --from=intermediate /src/*.html .
+COPY --from=intermediate /src/*.css .
+COPY --from=intermediate /src/*.svg .
+
+WORKDIR /

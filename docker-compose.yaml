@@ -1,19 +1,25 @@
 version: "3.8"
 services:
    mudblazorui:
-      image: mudblazorui
+      build:
+        context: .
+        dockerfile: Dockerfile.mudblazorui
       environment:
         VIRTUAL_HOST: mudblazorui.localhost
       restart: always
 
    identitydemo:
-      image: identitydemo
+      build:
+        context: .
+        dockerfile: Dockerfile.identitydemo
       environment:
         VIRTUAL_HOST: identitydemo.localhost
       restart: always
 
    demositelist:
-      image: demositelist
+      build:
+        context: .
+        dockerfile: Dockerfile.demositelist
       environment:
         VIRTUAL_HOST: localhost
       restart: always
