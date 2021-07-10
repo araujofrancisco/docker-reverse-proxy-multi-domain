@@ -5,7 +5,7 @@ services:
         context: .
         dockerfile: Dockerfile.mudblazorui
       environment:
-        VIRTUAL_HOST: mudblazorui.localhost
+        VIRTUAL_HOST: mudblazorui.${MY_HOST:-localhost}
       restart: always
 
    identitydemo:
@@ -13,7 +13,7 @@ services:
         context: .
         dockerfile: Dockerfile.identitydemo
       environment:
-        VIRTUAL_HOST: identitydemo.localhost
+        VIRTUAL_HOST: identitydemo.${MY_HOST:-localhost}
       restart: always
 
    mvcblazordemo:
@@ -21,7 +21,7 @@ services:
         context: .
         dockerfile: Dockerfile.mvcblazordemo
       environment:
-        VIRTUAL_HOST: mvcblazordemo.localhost
+        VIRTUAL_HOST: mvcblazordemo.${MY_HOST:-localhost}
       restart: always
 
    demositelist:
@@ -29,15 +29,16 @@ services:
         context: .
         dockerfile: Dockerfile.demositelist
       environment:
-        VIRTUAL_HOST: localhost
+        VIRTUAL_HOST: ${MY_HOST:-localhost}
       restart: always
       
    nginx-proxy:
       image: jwilder/nginx-proxy
       environment:
-        DEFAULT_HOST: localhost
+        DEFAULT_HOST: ${MY_HOST:-localhost}
       ports:
         - "8880:80"
+        - "8443:443"
       volumes:
         - /var/run/docker.sock:/tmp/docker.sock:ro
       restart: always

@@ -1,6 +1,9 @@
 FROM nginx:alpine AS base
 EXPOSE 80
-#EXPOSE 443
+EXPOSE 443
+
+ARG MY_HOST
+ENV MY_HOST=${MY_HOST}
 
 FROM alpine/git:latest AS intermediate
 WORKDIR /src
@@ -8,6 +11,7 @@ RUN git clone https://github.com/araujofrancisco/docker-reverse-proxy-multi-doma
 
 COPY ["demositelist/*.html", "."]
 COPY ["demositelist/*.css", "."]
+RUN sed -i "s/localhost/${MY_HOST}/gi" "demositelist/index.html"
 
 FROM base AS final
 WORKDIR /usr/share/nginx/html
