@@ -6,6 +6,8 @@ services:
         dockerfile: Dockerfile.mudblazorui
       environment:
         VIRTUAL_HOST: mudblazorui.${MY_HOST:-localhost}
+        LETSENCRYPT_HOST: mudblazorui.${MY_HOST:-localhost}
+        LETSENCRYPT_EMAIL: hostmaster@example.com
       restart: always
 
    identitydemo:
@@ -14,6 +16,8 @@ services:
         dockerfile: Dockerfile.identitydemo
       environment:
         VIRTUAL_HOST: identitydemo.${MY_HOST:-localhost}
+        LETSENCRYPT_HOST: identitydemo.${MY_HOST:-localhost}
+        LETSENCRYPT_EMAIL: hostmaster@example.com
       restart: always
 
    mvcblazordemo:
@@ -22,6 +26,8 @@ services:
         dockerfile: Dockerfile.mvcblazordemo
       environment:
         VIRTUAL_HOST: mvcblazordemo.${MY_HOST:-localhost}
+        LETSENCRYPT_HOST: mvcblazordemo.${MY_HOST:-localhost}
+        LETSENCRYPT_EMAIL: hostmaster@example.com
       restart: always
 
    demositelist:
@@ -30,17 +36,23 @@ services:
         dockerfile: Dockerfile.demositelist
       environment:
         VIRTUAL_HOST: ${MY_HOST:-localhost}
+        LETSENCRYPT_HOST: ${MY_HOST:-localhost}
+        LETSENCRYPT_EMAIL: hostmaster@example.com
       restart: always
       
-   nginx-proxy:
-      image: jwilder/nginx-proxy
+   proxy:
+      image: jwilder/nginx-proxy:alpine
       environment:
         DEFAULT_HOST: ${MY_HOST:-localhost}
       ports:
-        - "80:80"
         - "443:443"
+        - "80:80"
       volumes:
         - /var/run/docker.sock:/tmp/docker.sock:ro
+        - ./certs:/etc/nginx/certs:ro
+        - ./vhost.d:/etc/nginx/vhost.d
+        - ./html:/usr/share/nginx/html
+        - ./conf.d:/etc/nginx/conf.d        
       labels:
         - "com.github.jrcs.letsencrypt_nginx_proxy_companion.nginx_proxy=true"  
       restart: always
