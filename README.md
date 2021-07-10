@@ -1,4 +1,4 @@
-Don't forget to add this 2 lines in your /etc/hosts file:
+Don't forget to add a line in your /etc/hosts file per each site you want to add:
 
 ```
 127.0.0.1	hosta
