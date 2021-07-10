@@ -3,9 +3,10 @@ body {
 }
 
 .center-content {
+	display: inline-table;
 	width: 35vw;
-	height: 30vh;
-	
+	height: 30vh;	
+
 	border-radius: 25px;
     background-color: #1f1f1f;
     opacity: 0.85;
@@ -25,9 +26,11 @@ body {
 }
 
 .ul-sites {
-	display: inline-block;
+	display: inline-block;	
 	width: 75%;
 	height: 90%;	
+
+	overflow: auto;
     list-style-type: none;
     padding-left: 0;
 }
