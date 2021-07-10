@@ -1,1 +1,4 @@
 *.tar
+certs/default.crt
+certs/default.key
+certs/dhparam.pem
