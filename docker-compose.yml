@@ -36,6 +36,7 @@ services:
         dockerfile: Dockerfile.demositelist
       environment:
         VIRTUAL_HOST: ${MY_HOST:-localhost}
+        VIRTUAL_PORT: "8080"
         LETSENCRYPT_HOST: ${MY_HOST:-localhost}
         LETSENCRYPT_EMAIL: hostmaster@example.com
       restart: always
