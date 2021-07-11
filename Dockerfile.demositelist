@@ -14,6 +14,6 @@ WORKDIR /usr/share/nginx/html
 COPY --from=intermediate /src/demositelist/*.html .
 COPY --from=intermediate /src/demositelist/*.css .
 
-RUN sed -i "s/localhost/${MY_HOST}/gi" "demositelist/index.html"
+RUN sed -i "s/localhost/${MY_HOST}/gi" index.html
 
 WORKDIR /
