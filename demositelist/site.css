@@ -4,18 +4,20 @@ body {
 
 .center-content {
 	display: inline-table;
-	width: 35vw;
-	height: 30vh;	
 
-	border-radius: 10px;
+	width: 20vw;
+	height: 100vh;	
+	min-width: 290px;
+
     background-color: #1f1f1f;
     opacity: 0.6;
 	
 	position: absolute;
+
 	top:0;
-	bottom: 25vh;
+	bottom: 0;
 	left: 0;
-	right: 0;
+	right: 80vw;
   	
 	margin: auto;
 	
@@ -27,7 +29,7 @@ body {
 
 .ul-sites {
 	display: inline-block;	
-	width: 75%;
+	width: 90%;
 	height: 90%;	
 
 	overflow: auto;
@@ -57,4 +59,56 @@ a:link {
 
 a:visited {
   color: #ffffff;
+}
+
+/* mudblazorui */
+#li-mudblazorui:hover ~ #ifrm-mudblazorui {
+	opacity: 1 !important;
+    transition: opacity 1.5s linear;
+}
+
+ #ifrm-mudblazorui {
+	opacity: 0;
+    transition: opacity 1.5s linear;
+}
+
+/* identitydemo */
+#li-identitydemo:hover ~ #ifrm-identitydemo {
+	opacity: 1 !important;
+    transition: opacity 1.5s linear;
+}
+
+ #ifrm-identitydemo {
+	opacity: 0;
+    transition: opacity 1.5s linear;
+}
+
+/* mvcblazordemo */
+#li-mvcblazordemo:hover ~ #ifrm-mvcblazordemo {
+	opacity: 1 !important;
+    transition: opacity 1.5s linear;
+}
+
+ #ifrm-mvcblazordemo {
+	opacity: 0;
+    transition: opacity 1.5s linear;
+}
+
+/* iframe general settings */
+.ifrm {
+    opacity: 0;
+	
+	width: 77vw;
+	height: 100%;
+
+	position: absolute;
+	left: 23vw;
+	top: 0;
+	bottom: 0;
+	right: 0;
+
+	margin: 0;
+	padding: 0;
+
+	border: none;
 }
