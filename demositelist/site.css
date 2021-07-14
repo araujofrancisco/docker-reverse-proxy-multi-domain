@@ -94,6 +94,17 @@ a:visited {
     transition: opacity 1.5s linear;
 }
 
+/* componentsdemo */
+#li-componentsdemo:hover ~ #ifrm-componentsdemo {
+	opacity: 1 !important;
+    transition: opacity 1.5s linear;
+}
+
+ #ifrm-componentsdemo {
+	opacity: 0;
+    transition: opacity 1.5s linear;
+}
+
 /* iframe general settings */
 .ifrm {
     opacity: 0;
