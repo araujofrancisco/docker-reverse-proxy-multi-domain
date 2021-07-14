@@ -15,8 +15,8 @@ services:
         context: .
         dockerfile: Dockerfile.identitydemo
       environment:
-        VIRTUAL_HOST: identitydemo.${MY_HOST:-localhost}
-        LETSENCRYPT_HOST: identitydemo.${MY_HOST:-localhost}
+        VIRTUAL_HOST: identity.${MY_HOST:-localhost}
+        LETSENCRYPT_HOST: identity.${MY_HOST:-localhost}
         LETSENCRYPT_EMAIL: hostmaster@example.com
       restart: always
 
@@ -25,11 +25,21 @@ services:
         context: .
         dockerfile: Dockerfile.mvcblazordemo
       environment:
-        VIRTUAL_HOST: mvcblazordemo.${MY_HOST:-localhost}
-        LETSENCRYPT_HOST: mvcblazordemo.${MY_HOST:-localhost}
+        VIRTUAL_HOST: mvcblazor.${MY_HOST:-localhost}
+        LETSENCRYPT_HOST: mvcblazor.${MY_HOST:-localhost}
         LETSENCRYPT_EMAIL: hostmaster@example.com
       restart: always
 
+   componentsdemo:
+     build:
+       context: .
+       dockerfile: Dockerfile.componentsdemo
+     environment:
+       VIRTUAL_HOST: components.${MY_HOST:-localhost}
+       LETSENCRYPT_HOST: components.${MY_HOST:-localhost}
+       LETSENCRYPT_EMAIL: hostmaster@example.com
+     restart: always
+  
    demositelist:
       build:
         context: .
