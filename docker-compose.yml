@@ -25,6 +25,9 @@ services:
         context: .
         dockerfile: Dockerfile.mvcblazordemo
       environment:
+        Authentication_Microsoft_ClientId: {Azure_ClientId}
+        Authentication_Microsoft_ClientSecret: {Azure_ClientSecret}
+        Jwt_Key: {JWT Bearer Token}
         VIRTUAL_HOST: mvcblazor.${MY_HOST:-localhost}
         LETSENCRYPT_HOST: mvcblazor.${MY_HOST:-localhost}
         LETSENCRYPT_EMAIL: hostmaster@example.com
