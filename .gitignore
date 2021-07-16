@@ -3,3 +3,5 @@ certs/default.crt
 certs/default.key
 certs/dhparam.pem
 conf.d/default.conf
+.env
+vhost.d/default
