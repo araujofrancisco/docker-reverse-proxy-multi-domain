@@ -7,7 +7,7 @@ services:
       environment:
         VIRTUAL_HOST: mudblazorui.${MY_HOST:-localhost}
         LETSENCRYPT_HOST: mudblazorui.${MY_HOST:-localhost}
-        LETSENCRYPT_EMAIL: hostmaster@example.com
+        LETSENCRYPT_EMAIL: ${HOST_EMAIL:-hostmaster@example.com}
       restart: always
 
    identitydemo:
@@ -17,7 +17,7 @@ services:
       environment:
         VIRTUAL_HOST: identity.${MY_HOST:-localhost}
         LETSENCRYPT_HOST: identity.${MY_HOST:-localhost}
-        LETSENCRYPT_EMAIL: hostmaster@example.com
+        LETSENCRYPT_EMAIL: ${HOST_EMAIL:-hostmaster@example.com}
       restart: always
 
    mvcblazordemo:
@@ -25,12 +25,12 @@ services:
         context: .
         dockerfile: Dockerfile.mvcblazordemo
       environment:
-        Authentication_Microsoft_ClientId: {Azure_ClientId}
-        Authentication_Microsoft_ClientSecret: {Azure_ClientSecret}
-        Jwt_Key: {JWT Bearer Token}
+        Authentication_Microsoft_ClientId: ${Authentication_Microsoft_ClientId}
+        Authentication_Microsoft_ClientSecret: ${Authentication_Microsoft_ClientSecret}
+        Jwt_Key: ${Jwt_Key}
         VIRTUAL_HOST: mvcblazor.${MY_HOST:-localhost}
         LETSENCRYPT_HOST: mvcblazor.${MY_HOST:-localhost}
-        LETSENCRYPT_EMAIL: hostmaster@example.com
+        LETSENCRYPT_EMAIL: ${HOST_EMAIL:-hostmaster@example.com}
       restart: always
 
    componentsdemo:
@@ -40,7 +40,7 @@ services:
      environment:
        VIRTUAL_HOST: components.${MY_HOST:-localhost}
        LETSENCRYPT_HOST: components.${MY_HOST:-localhost}
-       LETSENCRYPT_EMAIL: hostmaster@example.com
+       LETSENCRYPT_EMAIL: ${HOST_EMAIL:-hostmaster@example.com}
      restart: always
   
    demositelist:
@@ -51,7 +51,7 @@ services:
         VIRTUAL_HOST: ${MY_HOST:-localhost}
         VIRTUAL_PORT: "8080"
         LETSENCRYPT_HOST: ${MY_HOST:-localhost}
-        LETSENCRYPT_EMAIL: hostmaster@example.com
+        LETSENCRYPT_EMAIL: ${HOST_EMAIL:-hostmaster@example.com}
       restart: always
       
    proxy:
